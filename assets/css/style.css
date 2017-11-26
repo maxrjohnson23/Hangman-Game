@@ -1,0 +1,22 @@
+body {
+	background-image: url("/assets/images/simple_dashed.png");
+	
+}
+
+.game {
+	margin-top: 50px;
+	height: 600px;
+}
+
+.content {
+	height: 100%;
+}
+
+.stats {
+	height: 100%;
+}
+
+.letters {
+	position: absolute;
+	bottom: 0;
+}
