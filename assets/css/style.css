@@ -1,22 +1,37 @@
 body {
 	background-image: url("/assets/images/simple_dashed.png");
-	
+	height: 80%;
 }
 
 .game {
 	margin-top: 50px;
-	height: 600px;
+	height: 500px;
+
 }
 
 .content {
-	height: 100%;
+	
+
+}
+
+.hangman {
+	height: 350px;
+}
+
+.word {
+	height: 300px;
+	padding-top: 80px;
+	text-align: center;
+}
+
+#guess-word {
+	letter-spacing: 15px;
 }
 
 .stats {
-	height: 100%;
 }
 
 .letters {
-	position: absolute;
-	bottom: 0;
+	
 }
+
