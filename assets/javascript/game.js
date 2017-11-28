@@ -1,12 +1,15 @@
 document.addEventListener('keydown', function(event) {
-    // check if key is a letter a-z
+    // check if key is a letter a-z or space to start game
+    console.log(event.key);
     if (event.keyCode >= 65 && event.keyCode <= 90) {
         game.guessLetter(String.fromCharCode(event.keyCode));
+    } else if (event.key === " ") {
+        game.startGame();
     }
 });
 
+
 var game = new Game();
-game.startGame();
 
 function Game() {
     var lettersGuessed = [];
@@ -20,9 +23,15 @@ function Game() {
 
     this.startGame = function() {
         console.log("Starting Game");
+        // Reset data for new game
+        guessWord = [];
+        maskedWord = [];
+        lettersGuessed = [];
+        remainingGuesses = 6;
         this.createWord();
         screenHandler.updateGuessWord(maskedWord);
         screenHandler.updateRemainingGuesses(startingGuesses);
+        screenHandler.updateGuessedLetters(lettersGuessed);
         screenHandler.updateWins(wins);
         screenHandler.updateLosses(losses);
     };
@@ -46,19 +55,16 @@ function Game() {
                 this.updateWord(letter);
                 isCorrect = true;
             }
-            this.updateGuesses(isCorrect);
         }
+        this.updateGuesses(isCorrect);
+        this.checkGameOver();
     };
 
     this.updateWord = function(guessedLetter) {
-        console.log("Guessed letter: " + guessedLetter);
 
         for (var i = 0; i < guessWord.length; i++) {
-            console.log(guessWord[i]);
-            console.log("Match: " + (guessWord[i] === guessedLetter));
             if (guessWord[i] === guessedLetter) {
                 maskedWord[i] = guessedLetter;
-                console.log(maskedWord.length);
                 console.log(maskedWord);
             }
         }
@@ -74,6 +80,19 @@ function Game() {
         screenHandler.updateRemainingGuesses(remainingGuesses);
 
     };
+
+    this.checkGameOver = function() {
+        if (!maskedWord.includes("_")) {
+            console.log("WIN!");
+            wins++;
+            //screenHandler.updateWins(wins);
+            this.startGame();
+        } else if (remainingGuesses === 0) {
+            console.log("LOSE!");
+            //screenHandler.updateLosses(losses);
+            this.startGame();
+        }
+    }
 
 }
 
