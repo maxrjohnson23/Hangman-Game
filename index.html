@@ -11,39 +11,30 @@
 </head>
 
 <body>
+    <img id="logo" src="assets/images/logo.png" alt="car">
+    <img id="car" src="assets/images/car.png" alt="car">
     <div class="container">
-        <div id="alert-banner" class="alert alert-success"></div>
-        <img id="car" src="assets/images/car.png" alt="car">
-        <div class="jumbotron game">
+        <!-- <div id="alert-banner" class="alert alert-success"></div> -->
+        <div class="jumbotron game ">
+            <div class="row win-loss">
+                    <div class="col-xs-4 col-xs-offset-2">
+                        <h2>Wins: <span id="wins">0</span></h2></div>
+                    <div class="losses col-xs-4">
+                        <h2>Losses: <span id="losses">0</span></h2></div>
+            </div>
             <div class="row content">
-                <div class="col-md-6">
-                    <div class="row hangman">
-                        <div class="hangman col-md-12">
-                            <h1>Hangman</h1></div>
-                    </div>
-                    <div class="row">
-                        <div class="remaining col-md-12">
-                            <h2>Guesses Remaining: <span id="guesses-remaining"></span></h2></div>
-                    </div>
-                </div>
-                <div class="stats col-md-6">
-                    <div class="row">
-                        <div class="col-md-6 col-xs-12">
-                            <h2>Wins: <span id="wins"></span></h2></div>
-                        <div class="losses col-md-6 col-xs-12">
-                            <h2>Losses: <span id="losses"></span></h2></div>
-                    </div>
-                    <div class="row">
-                        <div class="word col-md-12">
-                            <h1 id="guess-word"></h1></div>
-                    </div>
-                    <div class="row">
-                        <div class="letters col-md-12">
-                            <h3 id="letters-guessed">Letters Guessed</h3></div>
-                    </div>
-                </div>
+                <div class="col-xs-6">
+                    <h3>Guesses Remain:</h3><br><h1><span id="guesses-remaining"></span></h1></div>
+                <div class="col-xs-6">TEST</div>
+            </div>
+            <div class="row">
+                <div class="word col-xs-12">
+                    <h1 id="guess-word"></h1></div>
+                <div class="letters col-xs-12">
+                    <h3>Letters Guessed</h3><span id="letters-guessed"></span></div>
             </div>
         </div>
+    </div>
     </div>
 </body>
 <script type="text/javascript" src="assets/javascript/words.js"></script>
