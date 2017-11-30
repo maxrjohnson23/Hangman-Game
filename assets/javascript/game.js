@@ -42,7 +42,7 @@ function Game() {
     this.createWord = function() {
         var word = new WordGenerator().generateWord();
         guessWord = word.toUpperCase().split("");
-        console.log("SPOILER!: The Word is: " + guessWord);
+        console.log("SPOILER!: The Word is: " + guessWord.join(""));
         for (var i = 0; i < guessWord.length; i++) {
             // Account for multiple-word answers
             if (guessWord[i] === " ") {
