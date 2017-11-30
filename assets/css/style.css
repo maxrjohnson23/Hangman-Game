@@ -1,17 +1,32 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
 	background-image: url("../images/simple_dashed.png");
+	margin-bottom: 50px;
+	font-family: "Racing Sans One";
+}
+
+#logo {
+	margin: 0 auto;
+	display: block;
+	padding-top: 20px;
+	margin-bottom: 50px;
+}
+
+.container {
+	max-width: 960px;
 }
 
 .animation {
 	height: 70px;
 	position: relative;
-	/*text-align: center;*/
-
 }
 
-#win, #instructions {
+#banner, #instructions {
 	text-align: center;
-	font-family: "Russo One";
 	color: #ffc94b;
 	position: absolute;
 	left: 0;
@@ -27,23 +42,15 @@ body {
 }
 
 .game {
-	height: 500px;
 	padding-top: 0;
 	margin-top: 0;
 	text-align: center;
 
 }
 
-#logo {
-	margin: 0 auto;
-	display: block;
-	padding-top: 20px;
-}
-
-
 .word {
 	height: 100px;
-	border: 1px dashed black;
+	border: 2px dashed black;
 	border-radius: 10px;
 }
 
@@ -63,10 +70,20 @@ body {
 	border-left: 2px solid #DDD;
 }
 
+.guesses {
+	padding-top:20px;
+}
+.letters, .guesses h2{
+	text-decoration: underline;
+	font-size: 35px;
+}
+
+.letters {
+	height: 100px;
+}
+
 #guesses-remaining {
-	margin-top: 0;
-	font-family: "Russo One";
-	/*update colors*/
+	font-size: 70px;
 }
 
 #car {
@@ -78,34 +95,36 @@ body {
 
 #guess-word {
 	letter-spacing: 15px;
-}
-
-
-#alert-banner {
-	max-width: 300px;
-	margin: 0 auto;
-	height: 80px;
-	visibility: hidden;
-	margin-top: 20px;
-}
-
-#alert-banner p {
-	font-size: 22px;
+	font-size: 70px;
 }
 
 #letters-guessed {
-	font-size: 22px;
+	font-size: 32px;
 	font-weight: bold;
 	letter-spacing: 5px;
 }
 
 .content {
-	/*margin-top: 50px;*/
 	height: 50%;
 }
 
+footer {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    background-color: #101010;
+    border-top: 5px solid #921111;
+}
+
+footer small {
+    line-height: 40px;
+    color: #BBB;
+    font-size: 12px;
+}
 
 
+/* Classes for CSS animations */
 .zoomAround {
   animation-duration: 3s;
   animation-fill-mode: both;
@@ -113,9 +132,13 @@ body {
 }
 
 .flash {
-	animation-duration: 3s;
+	animation-duration: 4s;
 	animation-fill-mode: both;
   	animation-name: flash;
+}
+
+.infinite {
+	animation-iteration-count: infinite;
 }
 
 @keyframes zoomAround {
@@ -131,12 +154,12 @@ body {
 
   60% {
   	opacity: 0;
-  	transform: translate3d(-500px, 0, 0);
+  	transform: translate3d(-2000px, 0, 0);
   }
 
   80% {
   	opacity: 1;
-  	transform: translate3d(-500px, 0, 0);
+  	transform: translate3d(-2000px, 0, 0);
   }
 
   to {

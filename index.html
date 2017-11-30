@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Hangman</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Russo+One">
+    <link href="https://fonts.googleapis.com/css?family=Racing+Sans+One" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
@@ -16,32 +15,38 @@
     <div class="container">
         <div class="animation">
             <img id="car" class="" src="assets/images/car.png" alt="car">
-            <div id="win">You Win!!</div>
-            <div id="instructions">Press Space to Start</div>
+            <div id="banner"></div>
+            <div id="instructions" class="flash infinite">Press Space to Start</div>
         </div>
         <div class="jumbotron game ">
             <div class="row win-loss">
                 <div class="col-xs-2 col-xs-offset-4 win-div">
-                    <h2>Won: <span id="wins">0</span></h2></div>
+                    <h2>W : <span id="wins">0</span></h2></div>
                 <div class="losses col-xs-2 loss-div">
-                    <h2>Lost: <span id="losses">0</span></h2></div>
+                    <h2>L : <span id="losses">0</span></h2></div>
             </div>
             <div class="row content">
+                <div class="col-xs-6 guesses">
+                    <h2>Guesses Remaining</h2>
+                    <h1><span id="guesses-remaining">6</span></h1></div>
                 <div class="col-xs-6">
-                    <h2>Guesses Remaining:</h2>
-                    <br>
-                    <h1><span id="guesses-remaining"></span></h1></div>
-                <div class="col-xs-6">TEST</div>
+                    <canvas id="canvas" width="300" height="220"></canvas>
+                </div>
             </div>
             <div class="row">
                 <div class="word col-xs-12">
                     <h1 id="guess-word"></h1></div>
-                <div class="col-xs-12">
+                <div class="letters col-xs-12">
                     <h2>Letters Guessed</h2><span id="letters-guessed"></span></div>
             </div>
         </div>
     </div>
     </div>
+    <footer class="footer">
+        <div class="container">
+            <small>Copyright &copy; 2017 Max Johnson</small>
+        </div>
+    </footer>
 </body>
 <script type="text/javascript" src="assets/javascript/words.js"></script>
 <script type="text/javascript" src="assets/javascript/game.js"></script>
