@@ -150,7 +150,7 @@ function ScreenHandler() {
         fadeIn(banner);
     }
     this.winAnimation = function() {
-        var audio = new Audio('/assets/sounds/vroom.mp3');
+        var audio = new Audio('assets/sounds/vroom.mp3');
         audio.play();
         var car = document.getElementById("car");
         var win = document.getElementById("win");
