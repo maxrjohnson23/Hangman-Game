@@ -204,8 +204,6 @@ var screenHandler = {
         var ctx = c.getContext("2d");
         ctx.lineWidth = 4;
 
-        console.log("Guess: " + guessNumber);
-
         switch (guessNumber) {
             case 5:
                 // draw head
