@@ -5,8 +5,27 @@ document.addEventListener('keydown', function(event) {
         game.guessLetter(String.fromCharCode(event.keyCode));
     } else if (event.key === " ") {
         game.startGame();
+        // disable space scroll to bottom
+        event.preventDefault();
     }
 });
+
+
+function fadeIn(element) {
+    // initial opacity
+    var op =0.1;
+    element.style.visibility = 'visible';
+    element.style.opacity = op;
+    // increase opacity over time
+    var timer = setInterval(function () {
+        if (op >= 1){
+            clearInterval(timer);
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op += op * 0.1;
+    }, 10);
+}
 
 
 var game = new Game();
@@ -65,7 +84,6 @@ function Game() {
         for (var i = 0; i < guessWord.length; i++) {
             if (guessWord[i] === guessedLetter) {
                 maskedWord[i] = guessedLetter;
-                console.log(maskedWord);
             }
         }
         screenHandler.updateGuessWord(maskedWord);
@@ -86,6 +104,7 @@ function Game() {
             console.log("WIN!");
             wins++;
             //screenHandler.updateWins(wins);
+            screenHandler.displayWinBanner();
             this.startGame();
         } else if (remainingGuesses === 0) {
             console.log("LOSE!");
@@ -116,5 +135,12 @@ function ScreenHandler() {
 
     this.updateLosses = function(losses) {
         document.getElementById("losses").innerHTML = losses;
+    }
+    this.displayWinBanner = function() {
+        var banner = document.getElementById("alert-banner");
+        banner.innerHTML = "<p><strong>You win!<strong></p>";
+        // fade(banner);
+        // banner.style.visibility = 'hidden';
+        fadeIn(banner);
     }
 }

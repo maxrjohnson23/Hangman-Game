@@ -6,11 +6,7 @@ body {
 .game {
 	margin-top: 50px;
 	height: 500px;
-
-}
-
-.content {
-	
+	padding-top: 0;
 
 }
 
@@ -24,14 +20,29 @@ body {
 	text-align: center;
 }
 
+#car {
+	margin: 0;
+}
+
 #guess-word {
 	letter-spacing: 15px;
 }
 
-.stats {
+
+#alert-banner {
+	max-width: 300px;
+	margin: 0 auto;
+	text-align: center;
+	height: 80px;
+	visibility: hidden;
+	margin-top: 20px;
 }
 
-.letters {
-	
+#alert-banner p {
+	font-size: 22px;
+}
+
+.content {
+	margin-top: 50px;
 }
 
