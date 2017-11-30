@@ -2,6 +2,30 @@ body {
 	background-image: url("/assets/images/simple_dashed.png");
 }
 
+.animation {
+	height: 70px;
+	position: relative;
+	/*text-align: center;*/
+
+}
+
+#win, #instructions {
+	text-align: center;
+	font-family: "Russo One";
+	color: #ffc94b;
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: 100%;
+	font-size: 30px;
+	line-height: 70px;
+	opacity: 0;
+}
+
+#instructions {
+	opacity: 1;
+}
+
 .game {
 	height: 500px;
 	padding-top: 0;
@@ -23,19 +47,33 @@ body {
 	border-radius: 10px;
 }
 
-.win-loss{
+.win-loss div {
 	text-align: center;
+	background-color: #100f0f;
+	color: #FFF;
+}
+
+.win-div {
+	border-bottom-left-radius: 10px;
+	border-right: 2px solid #DDD;
+}
+
+.loss-div {
+	border-bottom-right-radius: 10px;
+	border-left: 2px solid #DDD;
 }
 
 #guesses-remaining {
 	margin-top: 0;
+	font-family: "Russo One";
 	/*update colors*/
 }
 
 #car {
+	position: absolute;
+	left: 0;
 	margin: 0;
 	width: 250px;
-	padding-left: 50px;
 }
 
 #guess-word {
@@ -55,8 +93,66 @@ body {
 	font-size: 22px;
 }
 
+#letters-guessed {
+	font-size: 22px;
+	font-weight: bold;
+	letter-spacing: 5px;
+}
+
 .content {
 	/*margin-top: 50px;*/
 	height: 50%;
 }
+
+
+
+.zoomAround {
+  animation-duration: 3s;
+  animation-fill-mode: both;
+  animation-name: zoomAround;
+}
+
+.flash {
+	animation-duration: 3s;
+	animation-fill-mode: both;
+  	animation-name: flash;
+}
+
+@keyframes zoomAround {
+  20% {
+    opacity: 1;
+    transform: translate3d(-20px, 0, 0);
+  }
+
+  40% {
+    opacity: 0;
+    transform: translate3d(2000px, 0, 0);
+  }
+
+  60% {
+  	opacity: 0;
+  	transform: translate3d(-500px, 0, 0);
+  }
+
+  80% {
+  	opacity: 1;
+  	transform: translate3d(-500px, 0, 0);
+  }
+
+  to {
+  	opacity: 1;
+  	transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes flash {
+  from, 50%, to {
+    opacity: 0;
+  }
+
+  25%, 75% {
+    opacity: 1;
+  }
+}
+
 

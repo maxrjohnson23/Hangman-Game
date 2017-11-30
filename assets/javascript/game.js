@@ -5,7 +5,7 @@ document.addEventListener('keydown', function(event) {
         game.guessLetter(String.fromCharCode(event.keyCode));
     } else if (event.key === " ") {
         game.startGame();
-        // disable space scroll to bottom
+        // disable default spacebar scroll to bottom
         event.preventDefault();
     }
 });
@@ -42,6 +42,7 @@ function Game() {
 
     this.startGame = function() {
         console.log("Starting Game");
+        screenHandler.hideInstructions();
         // Reset data for new game
         guessWord = [];
         maskedWord = [];
@@ -73,10 +74,11 @@ function Game() {
             if (guessWord.includes(letter)) {
                 this.updateWord(letter);
                 isCorrect = true;
-            }
+            } 
+            this.updateGuesses(isCorrect);
+            this.checkGameOver();
         }
-        this.updateGuesses(isCorrect);
-        this.checkGameOver();
+       
     };
 
     this.updateWord = function(guessedLetter) {
@@ -104,10 +106,11 @@ function Game() {
             console.log("WIN!");
             wins++;
             //screenHandler.updateWins(wins);
-            screenHandler.displayWinBanner();
+            screenHandler.winAnimation();
             this.startGame();
         } else if (remainingGuesses === 0) {
             console.log("LOSE!");
+            losses++;
             //screenHandler.updateLosses(losses);
             this.startGame();
         }
@@ -116,6 +119,9 @@ function Game() {
 }
 
 function ScreenHandler() {
+    this.hideInstructions = function() {
+        document.getElementById("instructions").style.visibility = "hidden";
+    }
     this.updateGuessWord = function(maskedWord) {
         // array to string for display
         document.getElementById("guess-word").innerHTML = maskedWord.join("");
@@ -142,5 +148,19 @@ function ScreenHandler() {
         // fade(banner);
         // banner.style.visibility = 'hidden';
         fadeIn(banner);
+    }
+    this.winAnimation = function() {
+        var audio = new Audio('/assets/sounds/vroom.mp3');
+        audio.play();
+        var car = document.getElementById("car");
+        var win = document.getElementById("win");
+        // trick to reset for multiple animations
+        car.classList.remove("zoomAround");
+        win.classList.remove("flash");
+        car.offsetHeight;
+        win.offsetHeight;
+        win.classList.add("flash");
+        car.classList.add("zoomAround");
+
     }
 }
