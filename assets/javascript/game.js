@@ -18,7 +18,7 @@ function Game() {
     var startingGuesses = 6;
     var wins = 0;
     var losses = 0;
-    var gameOver = false;
+    var gameOver = true;
 
     this.startGame = function() {
         // unlock game after resetting delay
@@ -42,7 +42,7 @@ function Game() {
     this.createWord = function() {
         var word = new WordGenerator().generateWord();
         guessWord = word.toUpperCase().split("");
-        console.log("SPOILER!: The Word is: " + guessWord.join(""));
+        console.log("SPOILER!: The Word is: " + guessWord.join("").replace(" ","  "));
         for (var i = 0; i < guessWord.length; i++) {
             // Account for multiple-word answers
             if (guessWord[i] === " ") {
@@ -109,6 +109,8 @@ function Game() {
             losses++;
             gameOver = true;
             screenHandler.flashBanner("lose");
+            // Display word on losing
+            screenHandler.updateGuessWord(guessWord);
             var that = this;
             setTimeout(function() {
                 that.startGame();
@@ -131,7 +133,10 @@ var screenHandler = {
     },
     updateGuessWord : function(maskedWord) {
         // aremove commas when displaying on screen
-        document.getElementById("guess-word").innerHTML = maskedWord.join("");
+        console.log("Word: " + maskedWord.join(""));
+        console.log("Word: " + maskedWord.join("").replace(" ", "   "));
+
+        document.getElementById("guess-word").textContent = maskedWord.join("").replace(/\s/g, '\u00A0\u00A0');
     },
     updateGuessedLetters : function(letters) {
         document.getElementById("letters-guessed").innerHTML = letters;

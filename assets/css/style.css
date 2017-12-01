@@ -94,7 +94,7 @@ body {
 }
 
 #guess-word {
-	letter-spacing: 15px;
+	letter-spacing: 20px;
 	font-size: 70px;
 }
 
@@ -102,6 +102,7 @@ body {
 	font-size: 32px;
 	font-weight: bold;
 	letter-spacing: 5px;
+	text-decoration: none;
 }
 
 .content {
