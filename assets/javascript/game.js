@@ -133,7 +133,8 @@ var screenHandler = {
     },
     updateGuessWord : function(maskedWord) {
         // remove commas when displaying on screen.  Add extra spaces for better visibility
-        document.getElementById("guess-word").textContent = maskedWord.join("").replace(/\s/g, '\u00A0\u00A0');
+        // document.getElementById("guess-word").textContent = maskedWord.join("").replace(/\s/g, '\u00A0\u00A0');
+        document.getElementById("guess-word").textContent = maskedWord.join("");
     },
     updateGuessedLetters : function(letters) {
         document.getElementById("letters-guessed").innerHTML = letters;
