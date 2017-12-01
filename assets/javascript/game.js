@@ -109,6 +109,7 @@ function Game() {
             losses++;
             gameOver = true;
             screenHandler.flashBanner("lose");
+            screenHandler.loseAnimation();
             // Display word on losing
             screenHandler.updateGuessWord(guessWord);
             var that = this;
@@ -161,9 +162,16 @@ var screenHandler = {
         car.classList.add("zoomAround");
     },
 
-    flashBanner : function(outcome) {
+    loseAnimation: function() {
         var audio = new Audio('assets/sounds/tires.mp3');
         audio.play();
+        var car = document.getElementById("car");
+        car.classList.remove("spinOut");
+        car.offsetHeight;
+        car.classList.add("spinOut");
+    },
+
+    flashBanner : function(outcome) {
         var banner = document.getElementById("banner");
         if (outcome === "lose") {
             banner.innerHTML = "You Lose!!";

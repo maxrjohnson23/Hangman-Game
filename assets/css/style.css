@@ -139,6 +139,13 @@ footer small {
   	animation-name: flash;
 }
 
+.spinOut {
+	animation-duration: 2s;
+	animation-fill-mode: both;
+  	animation-name: spinOut;
+}
+
+
 .infinite {
 	animation-iteration-count: infinite;
 }
@@ -177,6 +184,15 @@ footer small {
 
   25%, 75% {
     opacity: 1;
+  }
+}
+
+@keyframes spinOut {
+  from {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+  to {
+    transform: rotate3d(0, 1, 0, 360deg);
   }
 }
 
