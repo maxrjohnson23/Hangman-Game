@@ -73,7 +73,7 @@ body {
 .guesses {
 	padding-top:20px;
 }
-.letters, .guesses h2{
+.letters h2, .guesses h2{
 	text-decoration: underline;
 	font-size: 35px;
 }
