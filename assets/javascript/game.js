@@ -132,10 +132,7 @@ var screenHandler = {
 
     },
     updateGuessWord : function(maskedWord) {
-        // aremove commas when displaying on screen
-        console.log("Word: " + maskedWord.join(""));
-        console.log("Word: " + maskedWord.join("").replace(" ", "   "));
-
+        // remove commas when displaying on screen.  Add extra spaces for better visibility
         document.getElementById("guess-word").textContent = maskedWord.join("").replace(/\s/g, '\u00A0\u00A0');
     },
     updateGuessedLetters : function(letters) {
