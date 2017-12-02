@@ -156,8 +156,8 @@ var screenHandler = {
         var audio = new Audio('assets/sounds/vroom.mp3');
         audio.play();
         var car = document.getElementById("car");
-        // trick to reset animations for next run
-        car.classList.remove("zoomAround");
+        // remove previous animations
+        car.classList = "";
         car.offsetHeight;
         car.classList.add("zoomAround");
     },
@@ -166,7 +166,8 @@ var screenHandler = {
         var audio = new Audio('assets/sounds/tires.mp3');
         audio.play();
         var car = document.getElementById("car");
-        car.classList.remove("spinOut");
+        // remove previous animations
+        car.classList = "";
         car.offsetHeight;
         car.classList.add("spinOut");
     },
