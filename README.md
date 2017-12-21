@@ -12,5 +12,6 @@
 * CSS Animations
 * Bootstrap Framework
 
+## [Play Now](https://maxrjohnson23.github.io/Hangman-Game/ "Play Hangman Car Edition")
 
 ![Hangman Screenshot](sample/screenshot.jpg?raw=true "Hangman Car Edition")
